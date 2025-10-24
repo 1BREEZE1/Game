@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Shooter Game - Lucy Games</title>
+    <meta name="description" content="Play the classic Bubble Shooter game! Aim, shoot, and match bubbles to clear the board. How high can you score?">
+    <meta name="keywords" content="bubble shooter, puzzle games, arcade games, match games, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫧</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Bubble Shooter</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>🫧 Bubble Shooter</h1>
+                <p>Aim and shoot bubbles to match 3 or more of the same color. Clear all bubbles to win!</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <div class="game-board-container">
+                    <canvas id="gameCanvas" width="400" height="600"></canvas>
+                    
+                    <!-- Game Overlay -->
+                    <div id="gameOverlay" class="game-overlay">
+                        <div class="overlay-content">
+                            <h2 id="overlayTitle">🫧 Bubble Shooter</h2>
+                            <p id="overlayMessage">Click or tap to aim and shoot!</p>
+                            <button id="startButton" class="game-button">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">High Score</span>
+                        <span id="highScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Bubbles Left</span>
+                        <span id="bubblesLeft" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span id="level" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <h3>🎮 Controls</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">MOUSE</span>
+                            <span class="control-desc">Aim & Shoot</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">TOUCH</span>
+                            <span class="control-desc">Tap to Shoot</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Pause/Resume</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">R</span>
+                            <span class="control-desc">Restart</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">M</span>
+                            <span class="control-desc">Toggle Sound</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls" id="mobileControls">
+                    <div class="mobile-control-pad">
+                        <button class="mobile-btn" id="pauseBtn">⏸</button>
+                        <button class="mobile-btn" id="restartBtn">🔄</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎯 Tips & Tricks</h3>
+                <ul>
+                    <li>🫧 Match 3 or more bubbles of the same color to pop them</li>
+                    <li>🎯 Aim carefully - use the walls to bounce shots</li>
+                    <li>⚡ Clear large groups for bonus points</li>
+                    <li>🏆 Isolated bubbles will fall and give extra points</li>
+                    <li>🎨 Plan ahead - look at your next bubble color</li>
+                    <li>⏰ Clear all bubbles before they reach the bottom!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

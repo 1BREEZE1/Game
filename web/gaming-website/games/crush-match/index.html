@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crush Match - Lucy Games</title>
+    <meta name="description" content="Match colorful tiles in this addictive crush game! Clear lines and score points!">
+    <meta name="keywords" content="crush match, match 3 games, puzzle games, tile matching, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Crush Match</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <div class="container">
+            <div class="game-header">
+                <h1>💥 Crush Match</h1>
+                <p>Match 3 or more tiles of the same color to crush them and score points!</p>
+            </div>
+
+            <div class="game-area">
+                <div class="game-board-container">
+                    <div class="game-board" id="gameBoard"></div>
+                    
+                    <div class="game-ui">
+                        <div class="start-screen" id="startScreen">
+                            <div class="start-content">
+                                <h2>💥 Crush Match</h2>
+                                <div class="start-preview">
+                                    <div class="preview-tiles">
+                                        <div class="preview-tile tile-red">🔴</div>
+                                        <div class="preview-tile tile-blue">🔵</div>
+                                        <div class="preview-tile tile-green">🟢</div>
+                                        <div class="preview-tile tile-bomb">💣</div>
+                                        <div class="preview-tile tile-star">⭐</div>
+                                    </div>
+                                    <div class="crush-effect">💥</div>
+                                </div>
+                                <div class="game-features">
+                                    <div class="feature-item">
+                                        <span class="feature-icon">💣</span>
+                                        <span>Bombs clear 3x3 areas</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">⭐</span>
+                                        <span>Stars clear all same colors</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">🎆</span>
+                                        <span>Chain reactions & combos</span>
+                                    </div>
+                                </div>
+                                <p class="start-instruction">Match 3+ tiles to crush them and create powerful combos!</p>
+                                <button class="start-btn" onclick="startGame()">
+                                    <span class="btn-icon">🚀</span>
+                                    <span>Start Crushing!</span>
+                                </button>
+                                <div class="start-hint">Click tiles to select, then click adjacent tiles to swap</div>
+                            </div>
+                        </div>
+
+                        <div class="game-over-screen hidden" id="gameOverScreen">
+                            <div class="game-over-content">
+                                <h2>Game Over!</h2>
+                                <div class="score-display">
+                                    <div class="score-item">
+                                        <span class="score-label">Final Score</span>
+                                        <span class="score-value" id="finalScore">0</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="score-label">Best Score</span>
+                                        <span class="score-value" id="bestScore">0</span>
+                                    </div>
+                                </div>
+                                <div class="game-over-buttons">
+                                    <button class="restart-btn" onclick="restartGame()">Play Again</button>
+                                    <button class="menu-btn" onclick="goToMenu()">Menu</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="score-hud hidden" id="scoreHud">
+                            <div class="current-score" id="currentScore">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-stats">
+                    <h3>🎮 Game Stats</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="scoreDisplay" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span id="levelDisplay" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Next Level</span>
+                        <span id="nextLevelProgress" class="stat-value">500</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Highest Level</span>
+                        <span id="highestLevel" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Highest Score</span>
+                        <span id="highestScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <h3>🎮 Controls</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">CLICK</span>
+                            <span class="control-desc">Select Tile</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">DRAG</span>
+                            <span class="control-desc">Swap Tiles</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Pause Game</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>✨ Tips & Tricks</h3>
+                <ul>
+                    <li>💥 Match 3 tiles for basic points, 4+ for power-ups!</li>
+                    <li>💣 Bombs clear 3x3 areas and chain with other bombs</li>
+                    <li>⭐ Stars clear all tiles of the same color</li>
+                    <li>🎯 Higher levels give more points per match</li>
+                    <li>🏆 Plan ahead to create bigger matches and combos!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

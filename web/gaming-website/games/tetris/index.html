@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game - Lucy Games</title>
+    <meta name="description" content="Play the classic Tetris game! Stack falling blocks to clear lines and score points. How high can you go?">
+    <meta name="keywords" content="tetris game, puzzle games, block games, classic games, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Tetris Game</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>🎲 Tetris</h1>
+                <p>Use arrow keys to move and rotate falling blocks. Clear horizontal lines to score points!</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <div class="game-board-container">
+                    <div class="tetris-container">
+                        <!-- Next Piece Preview -->
+                        <div class="next-piece-container">
+                            <h3>Next Piece</h3>
+                            <canvas id="nextCanvas" width="120" height="120"></canvas>
+                        </div>
+
+                        <!-- Main Game Board -->
+                        <div class="main-game">
+                            <canvas id="gameCanvas" width="300" height="600"></canvas>
+                            
+                            <!-- Game Overlay -->
+                            <div id="gameOverlay" class="game-overlay">
+                                <div class="overlay-content">
+                                    <h2 id="overlayTitle">🎲 Tetris</h2>
+                                    <p id="overlayMessage">Press SPACE or tap to start!</p>
+                                    <button id="startButton" class="game-button">Start Game</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Game Stats -->
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Score</span>
+                                <span id="score" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Level</span>
+                                <span id="level" class="stat-value">1</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Lines</span>
+                                <span id="lines" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">High Score</span>
+                                <span id="highScore" class="stat-value">0</span>
+                            </div>
+                            <div class="game-actions">
+                                <button class="game-button" id="pauseButton">Pause</button>
+                                <button class="game-button" id="restartButton">Restart</button>
+                                <button class="sound-toggle" id="soundToggle" title="Toggle Sound">🔊</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <h3>🎮 Controls</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">← →</span>
+                            <span class="control-desc">Move Left/Right</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">↓</span>
+                            <span class="control-desc">Soft Drop</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">↑ / Z</span>
+                            <span class="control-desc">Rotate</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Hard Drop</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">P</span>
+                            <span class="control-desc">Pause</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">R</span>
+                            <span class="control-desc">Restart</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls" id="mobileControls">
+                    <div class="mobile-control-pad">
+                        <div class="mobile-row">
+                            <button class="mobile-btn" id="rotateBtn">🔄</button>
+                            <button class="mobile-btn" id="hardDropBtn">⬇</button>
+                        </div>
+                        <div class="mobile-row">
+                            <button class="mobile-btn" id="leftBtn">←</button>
+                            <button class="mobile-btn" id="downBtn">↓</button>
+                            <button class="mobile-btn" id="rightBtn">→</button>
+                        </div>
+                        <div class="mobile-row">
+                            <button class="mobile-btn" id="pauseMobileBtn">⏸</button>
+                            <button class="mobile-btn" id="restartMobileBtn">🔄</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎯 Tips & Tricks</h3>
+                <ul>
+                    <li>🎲 Complete horizontal lines to clear them and score points</li>
+                    <li>🔄 Rotate pieces to fit them into tight spaces</li>
+                    <li>⚡ Use hard drop (SPACE) to quickly place pieces</li>
+                    <li>📈 Clear multiple lines at once for bonus points</li>
+                    <li>🏗️ Keep your stack low and avoid building too high</li>
+                    <li>🎯 Plan ahead - look at the next piece preview</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princess Dress Up - Lucy Games</title>
+    <meta name="description" content="Play the fun Princess Dress Up game! Mix and match outfits, hairstyles, and accessories to create the perfect look!">
+    <meta name="keywords" content="dress up game, princess game, fashion game, girls games, makeover game, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👗</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Princess Dress Up</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>👗 Princess Dress Up</h1>
+                <p>Create the perfect look! Mix and match outfits, hairstyles, and accessories to dress up your princess!</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <div class="game-board-container">
+                    <!-- Princess Display -->
+                    <div class="princess-stage">
+                        <div class="princess-character">
+                            <div class="character-hair" id="characterHair">
+                                <div class="hair-style hair-1"></div>
+                            </div>
+                            <div class="character-base"></div>
+                            <div class="character-dress" id="characterDress">
+                                <div class="dress-style dress-1"></div>
+                            </div>
+                            <div class="character-shoes" id="characterShoes">
+                                <div class="shoes-style shoes-1"></div>
+                            </div>
+                            <div class="character-accessories" id="characterAccessories">
+                                <div class="accessory-style accessory-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game Controls -->
+                    <div class="game-controls">
+                        <div class="control-section">
+                            <button class="control-btn active" data-category="hair">💇♀️ Hair</button>
+                            <button class="control-btn" data-category="dress">👗 Dresses</button>
+                            <button class="control-btn" data-category="shoes">👠 Shoes</button>
+                            <button class="control-btn" data-category="accessories">💎 Accessories</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="randomOutfit()">🎲 Random</button>
+                            <button class="action-btn" onclick="resetOutfit()">🔄 Reset</button>
+                            <button class="action-btn" onclick="saveOutfit()">📸 Save Look</button>
+                        </div>
+                    </div>
+
+                    <!-- Item Selection Panel -->
+                    <div class="item-selection-panel">
+                        <div class="panel-header">
+                            <h3 id="panelTitle">💇♀️ Choose Hairstyle</h3>
+                        </div>
+                        
+                        <div class="items-grid" id="itemsGrid">
+                            <!-- Hair Options -->
+                            <div class="item-category" data-category="hair">
+                                <div class="item-option active" data-item="hair-1" title="Long Blonde">
+                                    <div class="item-preview hair-1-preview"></div>
+                                    <span>Blonde</span>
+                                </div>
+                                <div class="item-option" data-item="hair-2" title="Curly Brown">
+                                    <div class="item-preview hair-2-preview"></div>
+                                    <span>Curly</span>
+                                </div>
+                                <div class="item-option" data-item="hair-3" title="Short Red">
+                                    <div class="item-preview hair-3-preview"></div>
+                                    <span>Red</span>
+                                </div>
+                                <div class="item-option" data-item="hair-4" title="Braided Black">
+                                    <div class="item-preview hair-4-preview"></div>
+                                    <span>Braided</span>
+                                </div>
+                                <div class="item-option" data-item="hair-5" title="Princess Updo">
+                                    <div class="item-preview hair-5-preview"></div>
+                                    <span>Updo</span>
+                                </div>
+                            </div>
+
+                            <!-- Dress Options -->
+                            <div class="item-category hidden" data-category="dress">
+                                <div class="item-option active" data-item="dress-1" title="Pink Ball Gown">
+                                    <div class="item-preview dress-1-preview"></div>
+                                    <span>Pink Gown</span>
+                                </div>
+                                <div class="item-option" data-item="dress-2" title="Blue Princess Dress">
+                                    <div class="item-preview dress-2-preview"></div>
+                                    <span>Blue Dress</span>
+                                </div>
+                                <div class="item-option" data-item="dress-3" title="Purple Sparkle">
+                                    <div class="item-preview dress-3-preview"></div>
+                                    <span>Purple</span>
+                                </div>
+                                <div class="item-option" data-item="dress-4" title="Green Nature">
+                                    <div class="item-preview dress-4-preview"></div>
+                                    <span>Green</span>
+                                </div>
+                                <div class="item-option" data-item="dress-5" title="Golden Royal">
+                                    <div class="item-preview dress-5-preview"></div>
+                                    <span>Golden</span>
+                                </div>
+                            </div>
+
+                            <!-- Shoes Options -->
+                            <div class="item-category hidden" data-category="shoes">
+                                <div class="item-option active" data-item="shoes-1" title="Glass Slippers">
+                                    <div class="item-preview shoes-1-preview"></div>
+                                    <span>Glass</span>
+                                </div>
+                                <div class="item-option" data-item="shoes-2" title="Pink Heels">
+                                    <div class="item-preview shoes-2-preview"></div>
+                                    <span>Pink</span>
+                                </div>
+                                <div class="item-option" data-item="shoes-3" title="Golden Flats">
+                                    <div class="item-preview shoes-3-preview"></div>
+                                    <span>Golden</span>
+                                </div>
+                                <div class="item-option" data-item="shoes-4" title="Silver Boots">
+                                    <div class="item-preview shoes-4-preview"></div>
+                                    <span>Silver</span>
+                                </div>
+                            </div>
+
+                            <!-- Accessories Options -->
+                            <div class="item-category hidden" data-category="accessories">
+                                <div class="item-option active" data-item="accessory-1" title="Diamond Tiara">
+                                    <div class="item-preview accessory-1-preview"></div>
+                                    <span>Tiara</span>
+                                </div>
+                                <div class="item-option" data-item="accessory-2" title="Pearl Necklace">
+                                    <div class="item-preview accessory-2-preview"></div>
+                                    <span>Necklace</span>
+                                </div>
+                                <div class="item-option" data-item="accessory-3" title="Magic Wand">
+                                    <div class="item-preview accessory-3-preview"></div>
+                                    <span>Wand</span>
+                                </div>
+                                <div class="item-option" data-item="accessory-4" title="Flower Crown">
+                                    <div class="item-preview accessory-4-preview"></div>
+                                    <span>Flowers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Outfits Created</span>
+                        <span id="outfitCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Current Style</span>
+                        <span id="currentStyle" class="stat-value">Princess</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Favorite Color</span>
+                        <span id="favoriteColor" class="stat-value">Pink</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <h3>🎮 Controls</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">1 2 3 4</span>
+                            <span class="control-desc">Switch Categories</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">CLICK</span>
+                            <span class="control-desc">Select Items</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">R</span>
+                            <span class="control-desc">Random Outfit</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Reset</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">S</span>
+                            <span class="control-desc">Save Look</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls" id="mobileControls">
+                    <div class="mobile-control-pad">
+                        <button class="mobile-btn" onclick="randomOutfit()">🎲</button>
+                        <button class="mobile-btn" onclick="resetOutfit()">🔄</button>
+                        <button class="mobile-btn" onclick="saveOutfit()">📸</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>✨ Fashion Tips</h3>
+                <ul>
+                    <li>👗 Mix and match different styles to create unique looks</li>
+                    <li>🎨 Try different color combinations for amazing outfits</li>
+                    <li>👑 Don't forget accessories to complete your look</li>
+                    <li>🌈 Use the random button for surprise combinations</li>
+                    <li>📸 Save your favorite outfits to show your friends!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Lucy Games</title>
+    <meta name="description" content="Play the classic Snake game! Control the snake, eat food, and grow longer. How high can you score?">
+    <meta name="keywords" content="snake game, classic games, arcade games, retro games, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Snake Game</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>🐍 Snake Game</h1>
+                <p>Use arrow keys or WASD to control the snake. Eat the red food to grow and score points!</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <div class="game-board-container">
+                    <canvas id="gameCanvas" width="400" height="400"></canvas>
+                    
+                    <!-- Game Overlay -->
+                    <div id="gameOverlay" class="game-overlay">
+                        <div class="overlay-content">
+                            <h2 id="overlayTitle">🐍 Snake Game</h2>
+                            <p id="overlayMessage">Press SPACE or tap to start!</p>
+                            <button id="startButton" class="game-button">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">High Score</span>
+                        <span id="highScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Length</span>
+                        <span id="length" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <h3>🎮 Controls</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">↑ ↓ ← →</span>
+                            <span class="control-desc">Arrow Keys</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">W A S D</span>
+                            <span class="control-desc">WASD Keys</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Pause/Resume</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">R</span>
+                            <span class="control-desc">Restart</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">M</span>
+                            <span class="control-desc">Toggle Sound</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls" id="mobileControls">
+                    <div class="mobile-control-pad">
+                        <button class="mobile-btn" id="upBtn">↑</button>
+                        <div class="mobile-row">
+                            <button class="mobile-btn" id="leftBtn">←</button>
+                            <button class="mobile-btn" id="pauseBtn">⏸</button>
+                            <button class="mobile-btn" id="rightBtn">→</button>
+                        </div>
+                        <button class="mobile-btn" id="downBtn">↓</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎯 Tips & Tricks</h3>
+                <ul>
+                    <li>🐍 The snake grows longer each time it eats food</li>
+                    <li>🚫 Don't hit the walls or your own tail!</li>
+                    <li>🎯 Try to plan your moves ahead to avoid getting trapped</li>
+                    <li>⚡ The game gets faster as your score increases</li>
+                    <li>🏆 Challenge yourself to beat your high score!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

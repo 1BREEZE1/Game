@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird - Lucy Games</title>
+    <meta name="description" content="Play the addictive Flappy Bird game! Tap to fly and navigate through pipes. How far can you go?">
+    <meta name="keywords" content="flappy bird, arcade game, flying game, tap game, high score, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Flappy Bird</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>Flappy Bird</h1>
+                <p>Tap to fly! Navigate through the pipes and see how far you can go. Don't hit the ground or pipes!</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <div class="game-board-container">
+                    <canvas id="gameCanvas" width="400" height="600"></canvas>
+                    
+                    <!-- Game UI Overlay -->
+                    <div class="game-ui" id="gameUI">
+                        <!-- Start Screen -->
+                        <div class="start-screen" id="startScreen">
+                            <div class="start-content">
+                                <h2>Flappy Bird</h2>
+                                <p>Tap anywhere to start flying!</p>
+                                <div class="start-bird">🐥</div>
+                                <button class="start-btn" id="startBtn">Start Game</button>
+                            </div>
+                        </div>
+
+                        <!-- Game Over Screen -->
+                        <div class="game-over-screen hidden" id="gameOverScreen">
+                            <div class="game-over-content">
+                                <h2>Game Over!</h2>
+                                <div class="score-display">
+                                    <div class="score-item">
+                                        <span class="score-label">Score</span>
+                                        <span class="score-value" id="finalScore">0</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span class="score-label">Best</span>
+                                        <span class="score-value" id="bestScore">0</span>
+                                    </div>
+                                </div>
+                                <div class="game-over-buttons">
+                                    <button class="restart-btn" id="restartBtn">Play Again</button>
+                                    <button class="menu-btn" onclick="location.reload()">Main Menu</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Score Display -->
+                        <div class="score-hud" id="scoreHUD">
+                            <div class="current-score" id="currentScore">0</div>
+                        </div>
+
+                        <!-- Instructions -->
+                        <div class="instructions" id="instructions">
+                            <p>Tap or Press SPACE to fly!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Current Score</span>
+                        <span id="statScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">High Score</span>
+                        <span id="statBest" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Games Played</span>
+                        <span id="gamesPlayed" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <h3>🎮 Controls</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Flap Wings</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">CLICK/TAP</span>
+                            <span class="control-desc">Flap Wings</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">R</span>
+                            <span class="control-desc">Restart Game</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">M</span>
+                            <span class="control-desc">Mute Sound</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls" id="mobileControls">
+                    <div class="mobile-control-pad">
+                        <button class="mobile-btn tap-btn" id="mobileFlap">
+                            <span>TAP TO FLY</span>
+                            <div class="tap-indicator">🐦</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎯 Pro Tips</h3>
+                <ul>
+                    <li>🐦 Tap gently for small hops, hold longer for bigger flaps</li>
+                    <li>⏰ Timing is everything - find your rhythm!</li>
+                    <li>👀 Look ahead to plan your path through pipes</li>
+                    <li>🎯 Aim for the center of pipe gaps for safety</li>
+                    <li>💪 Practice makes perfect - don't give up!</li>
+                    <li>🏆 Challenge friends to beat your high score!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

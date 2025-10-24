@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match - Lucy Games</title>
+    <meta name="description" content="Test your memory with this fun matching game! Flip cards to find pairs and complete the puzzle.">
+    <meta name="keywords" content="memory game, matching game, brain training, puzzle games, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    
+    <!-- Google AdSense - Replace with your publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Memory Match</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>🧠 Memory Match</h1>
+                <p>Test your memory! Flip cards to find matching pairs. Challenge yourself with different difficulty levels.</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <!-- Game Controls -->
+                <div class="game-controls">
+                    <div class="difficulty-selector">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy (4x3)</option>
+                            <option value="medium" selected>Medium (4x4)</option>
+                            <option value="hard">Hard (6x4)</option>
+                        </select>
+                    </div>
+                    <button id="new-game-btn" class="game-button">New Game</button>
+                    <button id="pause-btn" class="game-button secondary">Pause</button>
+                </div>
+
+                <!-- Game Board Container -->
+                <div class="game-board-container">
+                    <div id="game-board" class="game-board"></div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Moves</span>
+                        <span id="moves-count" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Time</span>
+                        <span id="time-count" class="stat-value">00:00</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Pairs Found</span>
+                        <span id="pairs-found" class="stat-value"><span>0</span> / <span id="total-pairs">8</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+            <div class="ad-container">
+                <div class="ad-placeholder">
+                    <!-- AdSense ad unit will go here -->
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎯 Tips & Tricks</h3>
+                <ul>
+                    <li>🧠 Try to remember the positions of cards you've seen</li>
+                    <li>🎯 Start by flipping cards in a systematic pattern</li>
+                    <li>⚡ The fewer moves you make, the higher your score!</li>
+                    <li>🏆 Challenge yourself with harder difficulty levels</li>
+                    <li>🎮 Use the pause feature if you need a break</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Win Modal -->
+    <div id="win-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🎉 Congratulations!</h2>
+            <p>You completed the memory match game!</p>
+            <div class="win-stats">
+                <div class="win-stat">
+                    <strong>Time:</strong> <span id="final-time">00:00</span>
+                </div>
+                <div class="win-stat">
+                    <strong>Moves:</strong> <span id="final-moves">0</span>
+                </div>
+                <div class="win-stat">
+                    <strong>Score:</strong> <span id="final-score">0</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="play-again-btn" class="game-button">Play Again</button>
+                <button id="back-to-games-btn" class="game-button secondary">Back to Games</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div id="pause-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>⏸️ Game Paused</h2>
+            <p>Take a break! Click resume when you're ready to continue.</p>
+            <div class="modal-actions">
+                <button id="resume-btn" class="game-button">Resume</button>
+                <button id="quit-btn" class="game-button secondary">Quit Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+    
+    <!-- Initialize AdSense -->
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>

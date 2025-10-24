@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Sharp - Lucy Games</title>
+    <meta name="description" content="Sharpen your memory! Match colors with numbers in this brain training puzzle game!">
+    <meta name="keywords" content="memory sharp, memory game, brain training, puzzle game, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Memory Sharp</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <div class="container">
+            <!-- Game Info -->
+            <div class="game-header">
+                <h1>🧠 Memory Sharp</h1>
+                <p>Study the pattern for 3 seconds, then click the color and its matching number!</p>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-area">
+                <div class="game-board-container">
+                    <div id="gameBoard" class="game-board">
+                        <div class="color-grid" id="colorGrid">
+                            <!-- Color tiles will be generated here -->
+                        </div>
+                        <div class="number-grid" id="numberGrid">
+                            <!-- Number tiles will be generated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Game Overlay -->
+                    <div id="gameOverlay" class="game-overlay">
+                        <div class="overlay-content">
+                            <h2 id="overlayTitle">🧠 Memory Sharp</h2>
+                            <p id="overlayMessage">Press SPACE or tap to start!</p>
+                            <button id="startButton" class="game-button">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats -->
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">High Score</span>
+                        <span id="highScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span id="level" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Time</span>
+                        <span id="timer" class="stat-value">30</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Sound</span>
+                        <button id="soundToggle" class="sound-toggle">🔊</button>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <h3>🎮 How to Play</h3>
+                    <div class="control-grid">
+                        <div class="control-item">
+                            <span class="control-key">👀</span>
+                            <span class="control-desc">Memorize color-number pairs</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">🖱️</span>
+                            <span class="control-desc">Click matching pairs</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">⏱️</span>
+                            <span class="control-desc">Beat the timer</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">SPACE</span>
+                            <span class="control-desc">Pause/Resume</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">R</span>
+                            <span class="control-desc">Restart</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-key">M</span>
+                            <span class="control-desc">Toggle Sound</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎯 Tips & Tricks</h3>
+                <ul>
+                    <li>🧠 Study the color-number pattern carefully</li>
+                    <li>⚡ Click matching pairs as fast as possible</li>
+                    <li>🎯 Complete all pairs before time runs out</li>
+                    <li>📈 Each level adds more colors and less time</li>
+                    <li>🏆 Challenge yourself to beat your high score!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+</body>
+</html>

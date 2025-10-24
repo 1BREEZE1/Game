@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Decorator - Lucy Games</title>
+    <meta name="description" content="Design and decorate beautiful cakes! Choose flavors, frostings, and decorations to create your perfect cake!">
+    <meta name="keywords" content="cake decorator, baking game, cake design, decorating game, free games">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html" class="back-link">
+                    <h1>🐰 Lucy Games</h1>
+                </a>
+                <span class="tagline">Cake Decorator</span>
+            </div>
+            <nav class="nav">
+                <a href="../../index.html">← Back to Games</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <div class="container">
+            <div class="game-header">
+                <h1>🍰 Cake Decorator</h1>
+                <p>Design and decorate beautiful cakes with different flavors, frostings, and decorations!</p>
+            </div>
+
+            <div class="game-area">
+                <div class="cake-display">
+                    <div class="cake-container">
+                        <div class="cake" id="cake">
+                            <div class="cake-layer bottom-layer" id="bottomLayer"></div>
+                            <div class="cake-layer middle-layer" id="middleLayer"></div>
+                            <div class="cake-layer top-layer" id="topLayer"></div>
+                            <div class="cake-decorations" id="decorations"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="decoration-panel">
+                    <div class="panel-tabs">
+                        <button class="tab-btn active" data-tab="flavors">🍰 Flavors</button>
+                        <button class="tab-btn" data-tab="frosting">🧁 Frosting</button>
+                        <button class="tab-btn" data-tab="decorations">🎂 Decorations</button>
+                        <button class="tab-btn" data-tab="toppings">🍓 Toppings</button>
+                    </div>
+
+                    <div class="tab-content active" id="flavors">
+                        <h3>Choose Cake Flavor</h3>
+                        <div class="options-grid">
+                            <div class="option-item active" data-flavor="vanilla">
+                                <div class="option-preview vanilla-cake"></div>
+                                <span>Vanilla</span>
+                            </div>
+                            <div class="option-item" data-flavor="chocolate">
+                                <div class="option-preview chocolate-cake"></div>
+                                <span>Chocolate</span>
+                            </div>
+                            <div class="option-item" data-flavor="strawberry">
+                                <div class="option-preview strawberry-cake"></div>
+                                <span>Strawberry</span>
+                            </div>
+                            <div class="option-item" data-flavor="red-velvet">
+                                <div class="option-preview red-velvet-cake"></div>
+                                <span>Red Velvet</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="frosting">
+                        <h3>Choose Frosting</h3>
+                        <div class="options-grid">
+                            <div class="option-item active" data-frosting="vanilla">
+                                <div class="option-preview vanilla-frosting"></div>
+                                <span>Vanilla</span>
+                            </div>
+                            <div class="option-item" data-frosting="chocolate">
+                                <div class="option-preview chocolate-frosting"></div>
+                                <span>Chocolate</span>
+                            </div>
+                            <div class="option-item" data-frosting="strawberry">
+                                <div class="option-preview strawberry-frosting"></div>
+                                <span>Strawberry</span>
+                            </div>
+                            <div class="option-item" data-frosting="cream">
+                                <div class="option-preview cream-frosting"></div>
+                                <span>Cream</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="decorations">
+                        <h3>Add Decorations</h3>
+                        <div class="options-grid">
+                            <div class="option-item" data-decoration="candles">
+                                <div class="option-preview">🕯️</div>
+                                <span>Candles</span>
+                            </div>
+                            <div class="option-item" data-decoration="flowers">
+                                <div class="option-preview">🌸</div>
+                                <span>Flowers</span>
+                            </div>
+                            <div class="option-item" data-decoration="hearts">
+                                <div class="option-preview">💖</div>
+                                <span>Hearts</span>
+                            </div>
+                            <div class="option-item" data-decoration="stars">
+                                <div class="option-preview">⭐</div>
+                                <span>Stars</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="toppings">
+                        <h3>Add Toppings</h3>
+                        <div class="options-grid">
+                            <div class="option-item" data-topping="strawberries">
+                                <div class="option-preview">🍓</div>
+                                <span>Strawberries</span>
+                            </div>
+                            <div class="option-item" data-topping="cherries">
+                                <div class="option-preview">🍒</div>
+                                <span>Cherries</span>
+                            </div>
+                            <div class="option-item" data-topping="sprinkles">
+                                <div class="option-preview">🌈</div>
+                                <span>Sprinkles</span>
+                            </div>
+                            <div class="option-item" data-topping="chocolate-chips">
+                                <div class="option-preview">🍫</div>
+                                <span>Choc Chips</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="randomCake()">🎲 Random</button>
+                        <button class="action-btn" onclick="resetCake()">🔄 Reset</button>
+                        <button class="action-btn" onclick="saveCake()">📸 Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Tips -->
+            <div class="game-tips">
+                <h3>🎂 Baking Tips</h3>
+                <ul>
+                    <li>🍰 Start with choosing your favorite cake flavor</li>
+                    <li>🧁 Pick a frosting that complements your cake</li>
+                    <li>🎨 Add decorations to make your cake special</li>
+                    <li>🍓 Top it off with delicious toppings</li>
+                    <li>📸 Save your beautiful creations to show friends!</li>
+                </ul>
+            </div>
+
+            <!-- Recommended Games -->
+            <div class="recommended-games">
+                <div class="recommended-header">
+                    <h3>🎮 More Games You'll Love</h3>
+                    <button class="shuffle-button" onclick="shuffleRecommendedGames()">🎲 Shuffle Games</button>
+                </div>
+                <p>Check out these other amazing games on Lucy Games!</p>
+                
+                <div class="recommended-grid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+
+                <div class="back-to-home">
+                    <a href="../../index.html" class="home-button">
+                        🏠 Back to All Games
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🐰 Lucy Games</h3>
+                    <p>Fun Games for Everyone!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lucy Games. Made with 💖 | <a href="../../index.html">More Games</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="../recommended-games.js"></script>
+</body>
+</html>
