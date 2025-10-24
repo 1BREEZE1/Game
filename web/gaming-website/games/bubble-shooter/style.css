@@ -337,30 +337,7 @@ body {
     background: linear-gradient(45deg, #4CAF50, #66BB6A);
 }
 
-/* Ad Container */
-.ad-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 1rem;
-    margin: 2rem 0;
-    border-radius: 10px;
-    text-align: center;
-}
 
-.ad-placeholder {
-    min-height: 100px;
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-weight: bold;
-}
-
-.ad-placeholder::before {
-    content: "Advertisement Space";
-}
 
 /* Game Tips */
 .game-tips {
@@ -805,15 +782,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Loading animation for ads */
-@keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
-.ad-placeholder {
-    animation: pulse 2s infinite;
 }
 
 /* Game animations */

@@ -119,28 +119,6 @@ const allGames = [
         }
     },
     {
-        id: 'puzzle-match',
-        name: 'Puzzle Match',
-        description: 'Match colorful tiles in this addictive puzzle game! Clear lines and score points!',
-        emoji: '🧩',
-        path: '../puzzle-match/index.html',
-        category: 'puzzle',
-        active: true,
-        preview: {
-            type: 'puzzle',
-            content: `
-                <div class="puzzle-preview">
-                    <div class="puzzle-tile puzzle-red">🔴</div>
-                    <div class="puzzle-tile puzzle-blue">🔵</div>
-                    <div class="puzzle-tile puzzle-green">🟢</div>
-                    <div class="puzzle-tile puzzle-bomb">💣</div>
-                    <div class="puzzle-tile puzzle-star">⭐</div>
-                    <div class="puzzle-tile puzzle-red">🔴</div>
-                </div>
-            `
-        }
-    },
-    {
         id: 'bubble-shooter',
         name: 'Bubble Shooter',
         description: 'Aim and shoot bubbles to match 3 or more of the same color. Clear all bubbles to advance to the next level!',
@@ -843,71 +821,6 @@ function addRecommendedGamesStyles() {
             100% { transform: translateX(-20px); }
         }
 
-        /* Puzzle Match Game Preview */
-        .puzzle-preview {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 8px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 3px;
-            padding: 8px;
-            overflow: hidden;
-        }
-
-        .puzzle-tile {
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: bold;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            animation: puzzleTileFloat 3s ease-in-out infinite;
-        }
-
-        .puzzle-red {
-            background: linear-gradient(145deg, #ff6b6b, #ee5a52);
-            animation-delay: 0s;
-        }
-
-        .puzzle-blue {
-            background: linear-gradient(145deg, #4ecdc4, #45b7b8);
-            animation-delay: 0.3s;
-        }
-
-        .puzzle-green {
-            background: linear-gradient(145deg, #55a3ff, #4285f4);
-            animation-delay: 0.6s;
-        }
-
-        .puzzle-bomb {
-            background: linear-gradient(145deg, #2d3436, #636e72);
-            animation: puzzleBombPulse 1.5s ease-in-out infinite;
-        }
-
-        .puzzle-star {
-            background: linear-gradient(145deg, #fdcb6e, #e17055);
-            animation: puzzleStarGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes puzzleTileFloat {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.05) rotate(2deg); }
-        }
-
-        @keyframes puzzleBombPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 5px rgba(45, 52, 54, 0.5); }
-            50% { transform: scale(1.1); box-shadow: 0 0 15px rgba(45, 52, 54, 0.8); }
-        }
-
-        @keyframes puzzleStarGlow {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 8px rgba(253, 203, 110, 0.6); }
-            50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(253, 203, 110, 1); }
-        }
 
         /* Cake Decorator Game Preview */
         .cake-preview {

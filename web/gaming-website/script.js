@@ -31,20 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Header background opacity on scroll
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        if (scrolled > 50) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 25px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        }
-    });
+    // Header background opacity on scroll - REMOVED to prevent header movement
+    // const header = document.querySelector('.header');
+    // window.addEventListener('scroll', function() {
+    //     const scrolled = window.pageYOffset;
+    //     const rate = scrolled * -0.5;
+    //     
+    //     if (scrolled > 50) {
+    //         header.style.background = 'rgba(255, 255, 255, 0.98)';
+    //         header.style.boxShadow = '0 2px 25px rgba(0, 0, 0, 0.15)';
+    //     } else {
+    //         header.style.background = 'rgba(255, 255, 255, 0.95)';
+    //         header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    //     }
+    // });
 
     // Animate stats on scroll
     const stats = document.querySelectorAll('.stat-number');

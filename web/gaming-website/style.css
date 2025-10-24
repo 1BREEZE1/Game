@@ -11,6 +11,7 @@ body {
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    padding-top: 80px; /* Add padding to account for fixed header */
 }
 
 .container {
@@ -21,12 +22,15 @@ body {
 
 /* Header */
 .header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: fixed !important;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
+    transform: translateZ(0);
 }
 
 .header .container {
@@ -82,36 +86,13 @@ body {
 
 
 
-/* Ad Container */
-.ad-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 1rem;
-    margin: 2rem 0;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.ad-placeholder {
-    min-height: 100px;
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-weight: bold;
-}
-
-.ad-placeholder::before {
-    content: "Advertisement Space";
-}
 
 /* Games Section */
 .games-section {
     background: rgba(255, 255, 255, 0.95);
     padding: 4rem 0;
     margin: 1rem 0;
+    margin-top: 20px; /* Reduced margin since body now has padding */
     border-radius: 20px;
 }
 
@@ -179,6 +160,16 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .game-image {
+        height: 120px;
+    }
+    
+    .game-preview {
+        transform: scale(0.7);
+    }
 }
 
 .game-preview {
@@ -1103,15 +1094,4 @@ body {
 /* Animation for smooth scrolling */
 html {
     scroll-behavior: smooth;
-}
-
-/* Loading animation for ads */
-@keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
-.ad-placeholder {
-    animation: pulse 2s infinite;
 }
