@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Game Pages -->
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/2048/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/snake/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/flappy-bird/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/tetris/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/memory-match/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/bubble-shooter/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/crush-match/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/Memory-Sharp/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/cake-decorator/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://astonishing-rugelach-5bfa75.netlify.app/games/dressing/index.html</loc>
+        <lastmod>2025-01-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
